@@ -1,0 +1,15 @@
+---
+const { path } = Astro.props;
+---
+<div x-data x-init="lottie.loadAnimation({
+  container: $el,
+  renderer: 'svg',
+  loop: true,
+  autoplay: true,
+  path: $el.dataset.lottiePath
+})" data-lottie-path={path}></div>
+
+<script>
+  import lottie from 'lottie-web';
+  window.lottie = lottie;
+</script>
