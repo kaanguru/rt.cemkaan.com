@@ -4,11 +4,12 @@ import starlight from '@astrojs/starlight';
 
 import alpinejs from '@astrojs/alpinejs';
 
+
 // https://astro.build/config
 export default defineConfig({
     integrations: [starlight({
         title: 'Routine Trace',
-        social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+      social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/kaanguru/routinetrace' }],
         customCss: [
             './src/styles/custom.css',
         ],
