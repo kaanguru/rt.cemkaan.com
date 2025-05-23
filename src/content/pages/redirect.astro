@@ -1,41 +1,44 @@
----
-// No server-side logic needed for this redirect page
----
+<!-- <div x-data="redirectHandler()">
+  <p>
+    If you are not redirected automatically, <a
+      :href="redirectUrl"
+      @click="handleRedirect">click here</a
+    >.
+  </p>
+</div>
 
-<div x-data="redirectHandler()">
-    <p>If you are not redirected automatically, <a :href="redirectUrl" @click="handleRedirect">click here</a>.</p>
-  </div>
-  
-  <script>
-    function redirectHandler() {
-      return {
-        redirectUrl: '#',
-        
-        init() {
-          // Auto-redirect on page load
-          this.performRedirect();
-        },
-        
-        performRedirect() {
-          const fragment = window.location.hash.substring(1);
-          const params = new URLSearchParams(fragment);
-          const accessToken = params.get('access_token');
-          const refreshToken = params.get('refresh_token');
-          const type = params.get('type');
-          
-          if (accessToken && refreshToken && type === 'recovery') {
-            const appDeepLink = `routinetrace://resetpassword?access_token=${accessToken}&refresh_token=${refreshToken}&type=${type}`;
-            this.redirectUrl = appDeepLink;
-            window.location.replace(appDeepLink);
-          } else {
-            this.redirectUrl = 'routinetrace://login';
-            window.location.replace('routinetrace://login');
-          }
-        },
-        
-        handleRedirect() {
-          this.performRedirect();
+<script>
+  function redirectHandler() {
+    return {
+      redirectUrl: "#",
+
+      init() {
+        // Auto-redirect on page load
+        this.performRedirect();
+      },
+
+      performRedirect() {
+        const fragment = window.location.hash.substring(1);
+        const params = new URLSearchParams(fragment);
+        const accessToken = params.get("access_token");
+        const refreshToken = params.get("refresh_token");
+        const type = params.get("type");
+
+        if (accessToken && refreshToken && type === "recovery") {
+          const appDeepLink = `routinetrace://resetpassword?access_token=${accessToken}&refresh_token=${refreshToken}&type=${type}`;
+          this.redirectUrl = appDeepLink;
+          window.location.replace(appDeepLink);
+        } else {
+          this.redirectUrl = "routinetrace://login";
+          window.location.replace("routinetrace://login");
         }
-      }
-    }
-  </script>
+      },
+
+      handleRedirect() {
+        this.performRedirect();
+      },
+    };
+  }
+</script>
+ -->
+<p>tests</p>
